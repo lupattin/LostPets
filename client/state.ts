@@ -203,6 +203,8 @@ export const state = {
         })
           .then((res) => res.json())
           .then((res) => {
+            console.log(res);
+            
             return res
           });
       });
