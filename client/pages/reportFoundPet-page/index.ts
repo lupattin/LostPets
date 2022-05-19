@@ -61,7 +61,7 @@ class ReportFoundpage extends HTMLElement {
           }
           .error{
             position: absolute;
-            top: 105%;
+            top: 98%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-family: 'PT Sans', sans-serif;
