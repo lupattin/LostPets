@@ -9,6 +9,7 @@
     "algoliasearch": "^4.13.0",
     "cloudinary": "^1.29.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
     "dropzone": "^6.0.0-beta.2",
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
@@ -24,7 +25,7 @@
   "scripts": {
     "dev:front": "parcel",
     "back": "nodemon --watch ./server/src/index.ts --exec ts-node ./server/src/index.ts",
-    "server":"ts-node ./server/src/index.ts",
+    "server": "ts-node ./server/src/index.ts",
     "build:front": "parcel build",
     "build:api": "tsc ./server/src/index.ts",
     "dev:back": "node ./server/src/index.js",

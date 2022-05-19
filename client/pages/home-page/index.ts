@@ -8,6 +8,8 @@ class Homepage extends HTMLElement {
   }
 
   render() {
+    console.log(process.env.SENDGRID_API_KEY);
+    
     const div = document.createElement("div");
     const style = document.createElement("style");
     div.innerHTML = `

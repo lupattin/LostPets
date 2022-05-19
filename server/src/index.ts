@@ -203,7 +203,7 @@ app.get("/user-by-id", async (req, res) => {
 app.post("/report-pet", authMiddleware, async (req, res) => {
   const { to, petname, username, phone, where } = req.body;
   const send = await sendMail(to, petname, username, phone, where);
-  res.json({ resp: "ok" });
+  res.json({ resp: send });
 });
 /* Ruta para heroku para SPA*/
 app.get("/cosascreadas", async (req, res) => {
