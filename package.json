@@ -1,0 +1,39 @@
+{
+  "name": "desafio",
+  "version": "1.0.0",
+  "source": "client/index.html",
+  "license": "MIT",
+  "dependencies": {
+    "@sendgrid/mail": "^7.6.2",
+    "@vaadin/router": "^1.7.4",
+    "algoliasearch": "^4.13.0",
+    "cloudinary": "^1.29.1",
+    "cors": "^2.8.5",
+    "dropzone": "^6.0.0-beta.2",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mapbox-gl": "^2.8.1",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.19.0",
+    "sqlite3": "^5.0.3"
+  },
+  "scripts": {
+    "dev:front": "parcel",
+    "back": "nodemon --watch ./server/src/index.ts --exec ts-node ./server/src/index.ts",
+    "server":"ts-node ./server/src/index.ts",
+    "build:front": "parcel build",
+    "build:api": "tsc ./server/src/index.ts",
+    "dev:back": "node ./server/src/index.js",
+    "build": "yarn build:front && yarn build:api",
+    "start": "yarn dev:back"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.8",
+    "buffer": "^6.0.3",
+    "parcel": "^2.4.1",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10"
+  }
+}

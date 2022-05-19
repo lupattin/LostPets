@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Css general -->
+    <link rel="stylesheet" href="./index.css" />
+    <!-- fonts -->
+    <link
+      href="http://fonts.cdnfonts.com/css/austie-bost-kitten-klub"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=PT+Sans:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- mapbox -->
+    <link
+      href="//api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <title>LostPets</title>
+  </head>
+  <body>
+    <div class="root"></div>
+    <script src="https://unpkg.com/@vaadin/router/dist/vaadin-router.umd.min.js"></script>
+    <script>
+        var Router = Vaadin.Router;
+          function hacerClick(){
+            
+            Router.go("foundpet-page");
+          }
+    </script>
+    <script type="module" src="index.ts"></script>
+  </body>
+</html>
