@@ -67,7 +67,7 @@ class Datospage extends HTMLElement {
     }
     .error{
       position: absolute;
-      top: 70%;
+      top: 80%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-family: 'PT Sans', sans-serif;

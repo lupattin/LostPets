@@ -72,6 +72,9 @@ class Loginpage extends HTMLElement {
       if (emailEL.value && passwordEL.value) {
         state.signIn(emailEL.value, passwordEL.value).then((data) => {
           if (data.token) {
+            const thisState = state.getState()
+            
+            localStorage.setItem("data",JSON.stringify(thisState))
             Router.go("location-page");
           } else if (data.Error) {
             const p = document.createElement("p");

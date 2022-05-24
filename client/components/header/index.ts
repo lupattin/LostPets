@@ -177,7 +177,7 @@ class Headercomp extends HTMLElement {
       alink5El.href = "/map-pets-page";
       const logoEl = shadow.querySelector(".logo");
       logoEl.addEventListener("click", () => {
-        Router.go("home-page");
+        Router.go("menu-page");
       });
     }
   }
