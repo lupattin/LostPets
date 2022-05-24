@@ -1,4 +1,5 @@
 import { Router } from "@vaadin/router";
+import { state } from "../../state";
 class Homepage extends HTMLElement {
   shadow: ShadowRoot;
   constructor() {
@@ -8,8 +9,12 @@ class Homepage extends HTMLElement {
   }
 
   render() {
-    console.log(process.env.SENDGRID_API_KEY);
-    
+    if (localStorage.getItem("data")) {
+      state.data = JSON.parse(localStorage.getItem("data"));
+
+      Router.go("menu-page");
+    }
+
     const div = document.createElement("div");
     const style = document.createElement("style");
     div.innerHTML = `
@@ -54,16 +59,14 @@ class Homepage extends HTMLElement {
     this.shadow.appendChild(div);
     this.shadow.appendChild(style);
 
-    
-
     const loginButton = this.shadow.getElementById("logIn");
     loginButton.addEventListener("click", () => {
       Router.go("login-page");
     });
-    const registerButton = this.shadow.getElementById("signUp")
-          registerButton.addEventListener("click", ()=>{
-          Router.go("signup-page")
-        })
+    const registerButton = this.shadow.getElementById("signUp");
+    registerButton.addEventListener("click", () => {
+      Router.go("signup-page");
+    });
   }
 }
 customElements.define("homepage-comp", Homepage);

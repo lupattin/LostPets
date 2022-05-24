@@ -81,7 +81,7 @@ app.post("/auth/token", async (req, res) => {
 /* Update Data */
 
 app.patch("/user", authMiddleware, async (req, res) => {
-  const { name, email, newpassword } = req.body;
+  const { name, email, emailToSearch, newpassword } = req.body;
   const user = await Auth.update(
     {
       name,
@@ -90,7 +90,7 @@ app.patch("/user", authMiddleware, async (req, res) => {
     },
     {
       where: {
-        email,
+        email:emailToSearch,
       },
       returning: true,
     }

@@ -73,10 +73,13 @@ export const state = {
         "content-type": "application/json",
         authorization: "Bearer" + `"` + this.data.token + `"`,
       },
-      body: JSON.stringify({ name, email, newpassword }),
+      body: JSON.stringify({ name, email,emailToSearch:this.data.email, newpassword }),
     })
       .then((response) => response.json())
-      .then((data) => {});
+      .then((data) => {
+        this.data.name = data[1][0].name
+        this.data.email = data[1][0].email  
+      });
   },
   getDirectionFromNominatim(direction: string, streetLevel: any, city: string) {
     return fetch(

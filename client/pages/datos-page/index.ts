@@ -89,36 +89,42 @@ class Datospage extends HTMLElement {
 
     guardarEL.addEventListener("click", (e) => {
       e.preventDefault();
-      console.log(state.getState());
-      
-      if (newPassEL.value === confirmPassEL.value) {
-        state
-          .updateData(nameEL.value, emailEL.value, confirmPassEL.value)
-          .then(() => {
-            const p = document.createElement("p");
-            const formEL = this.shadow.querySelector(".form");
-            p.textContent = "Datos Guardados con exito";
-            p.className = "error";
-            formEL.appendChild(p);
-            setTimeout(function () {
-              formEL.removeChild(p);
-            }, 5000);
-          });
-      }else{
-        const p = document.createElement("p");
-            const formEL = this.shadow.querySelector(".form");
-            p.textContent = "Las contraseñas no coinciden";
-            p.className = "error";
-            formEL.appendChild(p);
-            setTimeout(function () {
-              formEL.removeChild(p);
-            }, 5000);
+      if (
+        newPassEL.value &&
+        confirmPassEL.value &&
+        nameEL.value &&
+        emailEL.value &&
+        confirmPassEL.value
+      ) {
+        if (newPassEL.value === confirmPassEL.value) {
+          state
+            .updateData(nameEL.value, emailEL.value, confirmPassEL.value)
+            .then(() => {
+              const p = document.createElement("p");
+              const formEL = this.shadow.querySelector(".form");
+              p.textContent = "Datos Guardados con exito";
+              p.className = "error";
+              formEL.appendChild(p);
+              setTimeout(function () {
+                formEL.removeChild(p);
+              }, 5000);
+            });
+        } else {
+          const p = document.createElement("p");
+          const formEL = this.shadow.querySelector(".form");
+          p.textContent = "Las contraseñas no coinciden";
+          p.className = "error";
+          formEL.appendChild(p);
+          setTimeout(function () {
+            formEL.removeChild(p);
+          }, 5000);
+        }
       }
     });
-    volvernEL.addEventListener("click", (e)=>{
-        e.preventDefault()
-        Router.go("menu-page")
-    })
+    volvernEL.addEventListener("click", (e) => {
+      e.preventDefault();
+      Router.go("menu-page");
+    });
   }
 }
 customElements.define("datos-comp", Datospage);

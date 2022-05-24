@@ -145,34 +145,41 @@ class Headercomp extends HTMLElement {
     shadow.appendChild(div);
     shadow.appendChild(style);
 
-    if (this.getAttribute("type")== "inicio"){
-      const link4El = shadow.querySelector(".link4") as HTMLLinkElement
-      const link5El = shadow.querySelector(".link5") as HTMLLinkElement
-      link4El.style.display = "none"
-      link5El.style.display = "none"
-    }else if(this.getAttribute("type")== "Ingresado"){
-      const link1El = shadow.querySelector(".link1") as HTMLLinkElement
-      const link2El = shadow.querySelector(".link2") as HTMLLinkElement
-      const link3El = shadow.querySelector(".link3") as HTMLLinkElement
+    if (this.getAttribute("type") == "inicio") {
+      const link4El = shadow.querySelector(".link4") as HTMLLinkElement;
+      const link5El = shadow.querySelector(".link5") as HTMLLinkElement;
+      link4El.style.display = "none";
+      link5El.style.display = "none";
+      const logoEl = shadow.querySelector(".logo");
+      logoEl.addEventListener("click", () => {
+        Router.go("home-page");
+      });
+    } else if (this.getAttribute("type") == "Ingresado") {
+      const link1El = shadow.querySelector(".link1") as HTMLLinkElement;
+      const link2El = shadow.querySelector(".link2") as HTMLLinkElement;
+      const link3El = shadow.querySelector(".link3") as HTMLLinkElement;
 
-      link1El.textContent = "Cerrar Sesión"
-      link2El.textContent = "Menu"
-      link3El.textContent = "Mis Mascotas Reportadas"
+      link1El.textContent = "Cerrar Sesión";
+      link2El.textContent = "Menu";
+      link3El.textContent = "Mis Mascotas Reportadas";
 
-      const alink2El = shadow.querySelector(".alink2") as HTMLLinkElement
-      alink2El.href = "/menu-page"
-      const alink3El = shadow.querySelector(".alink3") as HTMLLinkElement
-      alink3El.href = "/pets-page"
-      const alink5El = shadow.querySelector(".alink5") as HTMLLinkElement
-      alink5El.href = "/map-pets-page"
+      link1El.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem("data");
+        Router.go("home-page");
+      });
 
+      const alink2El = shadow.querySelector(".alink2") as HTMLLinkElement;
+      alink2El.href = "/menu-page";
+      const alink3El = shadow.querySelector(".alink3") as HTMLLinkElement;
+      alink3El.href = "/pets-page";
+      const alink5El = shadow.querySelector(".alink5") as HTMLLinkElement;
+      alink5El.href = "/map-pets-page";
+      const logoEl = shadow.querySelector(".logo");
+      logoEl.addEventListener("click", () => {
+        Router.go("home-page");
+      });
     }
-    
-
-    const logoEl = shadow.querySelector(".logo");
-    logoEl.addEventListener("click", () => {
-      Router.go("home-page");
-    });
   }
 }
 customElements.define("header-comp", Headercomp);
