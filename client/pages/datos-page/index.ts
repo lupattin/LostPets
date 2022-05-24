@@ -93,8 +93,7 @@ class Datospage extends HTMLElement {
         newPassEL.value &&
         confirmPassEL.value &&
         nameEL.value &&
-        emailEL.value &&
-        confirmPassEL.value
+        emailEL.value
       ) {
         if (newPassEL.value === confirmPassEL.value) {
           state
@@ -119,6 +118,15 @@ class Datospage extends HTMLElement {
             formEL.removeChild(p);
           }, 5000);
         }
+      }else {
+        const p = document.createElement("p");
+        const formEL = this.shadow.querySelector(".form");
+        p.textContent = "Falta completar alguno de los datos";
+        p.className = "error";
+        formEL.appendChild(p);
+        setTimeout(function () {
+          formEL.removeChild(p);
+        }, 5000);
       }
     });
     volvernEL.addEventListener("click", (e) => {
