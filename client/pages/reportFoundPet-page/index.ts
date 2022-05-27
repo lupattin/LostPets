@@ -34,7 +34,7 @@ class ReportFoundpage extends HTMLElement {
           .form{
             display:flex;
             flex-direction: column;
-            height: 120vh;
+            height: 150vh;
             text-align: center;
             justify-content: space-evenly;
           }
@@ -82,8 +82,7 @@ class ReportFoundpage extends HTMLElement {
       const buttonEl = this.shadow.querySelector(".button")
       buttonEl.addEventListener("click",(e)=>{
           e.preventDefault()
-          console.log(nameValue.value,phoneValue.value,textValue.value);
-          console.log(state);
+          
           
           
           state.foundPet(nameValue.value,phoneValue.value,textValue.value).then((resp)=>{
