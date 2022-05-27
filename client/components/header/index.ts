@@ -1,5 +1,5 @@
 import { Router } from "@vaadin/router";
-
+import { state } from "../../state";
 class Headercomp extends HTMLElement {
   shadow: ShadowRoot;
   constructor() {
@@ -29,6 +29,7 @@ class Headercomp extends HTMLElement {
           <a class="alink3" href="/signup-page"><li class="link3">Registrarse</li></a>
           <a class="alink4" href="/reportPet-page"><li class="link4">Reportar Mascota</li></a>
           <a class="alink5" href="/map-pets-page"><li class="link5">Mapa de Mascotas</li></a>
+          <p class= "user"></p>
         </ul>
       </div>
         </nav>
@@ -41,13 +42,33 @@ class Headercomp extends HTMLElement {
         height: 80px;
         display: flex;
       }
+    .user{
+        color:red;
+        font-family: 'Austie Bost Kitten Klub', sans-serif;
+        font-size: 30px;
+      }
     .logo{
         background: url(${logoUrl});
         height: 34px;
         width: 40px;
         position: absolute;
-        left: 90%;
+        left: 82%;
         top: 30px;
+      }
+      @media (min-width:600px){
+        .logo{
+          left: 88%;
+        }
+      }
+      @media (min-width:1000px){
+        .logo{
+          left: 90%;
+        }
+      }
+      @media (min-width:1000px){
+        .logo{
+          left: 94%;
+        }
       }
       .title{
         font-family: 'Austie Bost Kitten Klub', sans-serif;
@@ -64,7 +85,7 @@ class Headercomp extends HTMLElement {
       display: block;
       position: relative;
       top: 30px;
-      left: 50px;
+      left: 35px;
       z-index: 1;
       -webkit-user-select: none;
       user-select: none;
@@ -155,6 +176,9 @@ class Headercomp extends HTMLElement {
         Router.go("home-page");
       });
     } else if (this.getAttribute("type") == "Ingresado") {
+      const userEl = shadow.querySelector(".user") as HTMLLinkElement;
+      userEl.textContent = `¡Hola ${state.getState().name}!`
+
       const link1El = shadow.querySelector(".link1") as HTMLLinkElement;
       const link2El = shadow.querySelector(".link2") as HTMLLinkElement;
       const link3El = shadow.querySelector(".link3") as HTMLLinkElement;

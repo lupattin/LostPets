@@ -188,7 +188,7 @@ export const state = {
       .then((res) => res.json())
       .then((result) => {
         
-        console.log(result);
+        
         
         return fetch("/report-pet", {
           method: "POST",
@@ -206,7 +206,7 @@ export const state = {
         })
           .then((res) => res.json())
           .then((res) => {
-            console.log(res);
+            
             
             return res
           });

@@ -1,0 +1,13 @@
+"use strict";
+exports.__esModule = true;
+exports.Pet = exports.Auth = exports.User = void 0;
+var user_1 = require("./user");
+exports.User = user_1.User;
+var auth_1 = require("./auth");
+exports.Auth = auth_1.Auth;
+var pet_1 = require("./pet");
+exports.Pet = pet_1.Pet;
+user_1.User.hasOne(auth_1.Auth);
+auth_1.Auth.belongsTo(user_1.User);
+user_1.User.hasMany(pet_1.Pet);
+pet_1.Pet.belongsTo(user_1.User);

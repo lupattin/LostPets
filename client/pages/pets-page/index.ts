@@ -125,7 +125,7 @@ class Petspage extends HTMLElement {
 
     state.petsById().then((data) => {
       for (const pet of data) {
-        console.log(pet);
+        
 
         const newPet = document.createElement("div");
         newPet.innerHTML = `
@@ -231,7 +231,7 @@ class Petspage extends HTMLElement {
           const buttonBackEl = this.shadow.querySelector(".back");
           buttonBackEl.addEventListener("click", (e) => {
             e.preventDefault();
-            Router.go("pets-page")
+            Router.go("menu-page")
           })
           /* Guardado de los datos de mascota reportada */
           const buttonReportEl = this.shadow.querySelector(".report");
@@ -264,9 +264,9 @@ class Petspage extends HTMLElement {
                       p.textContent = "Mascota modificada correctamente";
                       p.className = "exito";
                       divEL.appendChild(p);
-                      /* setTimeout(function () {
+                      setTimeout(function () {
                         divEL.removeChild(p);
-                      }, 5000); */
+                      }, 5000);
                     } else {
                       const p = document.createElement("p");
                       const divEL = this.shadow.querySelector(".contenedor");

@@ -48,6 +48,7 @@ class Datospage extends HTMLElement {
       align-items: center;
       font-family: 'Austie Bost Kitten Klub', sans-serif;
       font-size: 42px;
+      text-align: center;
     }
     .input{
       width: 250px;

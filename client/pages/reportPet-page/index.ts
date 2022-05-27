@@ -52,7 +52,7 @@ class ReportPetpage extends HTMLElement {
             flex-direction: column;
             align-items: center;
             text-align: center;
-            height: 270vh;
+            height: 300vh;
           }
           .contenedor_botones{
             display: flex;
@@ -102,7 +102,7 @@ class ReportPetpage extends HTMLElement {
           }
           .exito{
             position: absolute;
-            top: 252%;
+            top: 282%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-family: 'PT Sans', sans-serif;
