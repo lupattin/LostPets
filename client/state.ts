@@ -65,6 +65,8 @@ export const state = {
   saveCoordinates(lat: Number, lng: Number) {
     this.data.lat = lat;
     this.data.lng = lng;
+    const thisState = state.getState()
+    localStorage.setItem("data",JSON.stringify(thisState))
   },
   updateData(name: string, email: string, newpassword: any) {
     return fetch("/user", {
