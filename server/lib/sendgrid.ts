@@ -18,8 +18,5 @@ export async function sendMail(to, petname, username, phone, where){
       })
       .catch((error) => {
         return error
-        console.log("entrado a errorS");
-        
-        console.error(error)
       })
 }

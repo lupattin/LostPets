@@ -3,5 +3,5 @@ import algoliasearch from "algoliasearch";
 
 
 
-const client = algoliasearch('82V25X16NI', 'b5521161f16e4ae727d51d560146e17c');
+const client = algoliasearch('82V25X16NI', process.env.ALGOLIA_SECRET);
 export const index = client.initIndex('pets');

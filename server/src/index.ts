@@ -105,7 +105,7 @@ app.get("/pets-by-user", async (req, res) => {
 /* get user email */
 app.get("/user-by-id", async (req, res) => {
   const userId = req.query.userId;
-  const result = userById(userId)
+  const result = await userById(userId)
   res.status(200).send(result);
 });
 /* Send mail for the found pet to the owner */

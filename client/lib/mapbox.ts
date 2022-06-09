@@ -2,7 +2,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl'
 
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibHVwYXR0aW4iLCJhIjoiY2wxYTlnY2RxMDRuMTNicGoweW5lYngzaCJ9.6J1n8RlyZoGMdN4K_5nkjQ';
+mapboxgl.accessToken = process.env.MAPBOX_SECRET;
 
 export function initMapbox(shadowEl){
       return new mapboxgl.Map({
