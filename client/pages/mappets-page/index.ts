@@ -111,7 +111,7 @@ class MapPetspage extends HTMLElement {
 
     state.searchPetsFromAlgolia(lat, lng).then((results) => {
       for (const pets of results) {
-        console.log(pets);
+        
         
         /* Creo HTML para los clicks en los markers de mapbox */
         const porUpDraw = `
@@ -174,7 +174,7 @@ class MapPetspage extends HTMLElement {
             .searchPetsFromAlgolia(latMaxLenght, lonMaxLenght)
             .then((results) => {
               for (const pets of results) {
-                console.log(pets);
+                
                 
                 /* Creo HTML para los clicks en los markers de mapbox */
                 const porUpDraw = `

@@ -26,8 +26,8 @@ export async function createUser(email, name, password ) {
           user_id: user.get("id"),
         },
       });
-
-    return {user, created, auth, authCreated}
+      const token = jwt.sign({ id: user.get("id") }, SECRET);
+    return {user, created, auth, authCreated, token}
 }
 
 export async function signUp(email, password) {

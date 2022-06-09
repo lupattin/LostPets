@@ -93,12 +93,12 @@ class SignUppage extends HTMLElement {
             }else{
               const p = document.createElement("p");
               const formEL = this.shadow.querySelector(".form");
-              p.textContent = "Te has registrado correctamente, volve al incio para iniciar sesion.";
+              p.textContent = "Te has registrado correctamente.";
               p.className = "error";
               formEL.appendChild(p);
               setTimeout(function () {
-                formEL.removeChild(p);
-              }, 15000);
+                Router.go("location-page");
+              }, 5000);
             }
           });
       } else {

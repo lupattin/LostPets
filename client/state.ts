@@ -38,6 +38,7 @@ export const state = {
         this.data.name = data.user.name;
         this.data.id = data.user.id;
         this.data.email = data.user.email;
+        this.data.token = data.token
         return data;
       });
   },
