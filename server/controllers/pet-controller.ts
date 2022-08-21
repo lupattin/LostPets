@@ -88,7 +88,7 @@ export async function petsByDirection(lat, lng) {
   try {
     const { hits } = await index.search("", {
       aroundLatLng: [lat, lng].join(","),
-      aroundRadius: 10000,
+      aroundRadius: 10000000000,
     });
     return hits
   } catch (error) {
