@@ -83,6 +83,19 @@ export async function updatePet(id, name, street, level, city, _geoloc, userId, 
     return "error"
   }
 }
+export async function eliminateOnePet(petId){
+  try {
+    const eliminate = await Pet.destroy({
+      where:{
+        id:petId
+      }
+    })
+    const eliminateAlgolia = await index.deleteObject(petId)
+    return "ok"
+  } catch (error) {
+    return error
+  }
+}
 
 export async function petsByDirection(lat, lng) {
   try {

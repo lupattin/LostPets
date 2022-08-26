@@ -9,7 +9,7 @@ import { updatePet } from "../controllers/pet-controller";
 import { petsByDirection } from "../controllers/pet-controller";
 import { petsByUser } from "../controllers/pet-controller";
 import { userById } from "../controllers/user-controller";
-
+import { eliminateOnePet } from "../controllers/pet-controller";
 const express = require("express");
 
 const app = express();
@@ -89,7 +89,18 @@ app.patch("/pet", authMiddleware, async (req, res) => {
     res.status(200).json({ resp: "error" });
   }
 });
-
+/* Eliminate one pet */
+app.delete("/pet", authMiddleware,async (req, res) => {
+  const petId = req.body.id
+  console.log(petId);
+  
+  const result = await eliminateOnePet(petId)
+  if (result == "ok") {
+    res.status(200).json({ resp: "ok" });
+  } else {
+    res.status(200).json({ resp: result });
+  }
+})
 /* search pets in a direction */
 app.get("/pets-near-direction", async (req, res) => {
   const { lat, lng } = req.query;
